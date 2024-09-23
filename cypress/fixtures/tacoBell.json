@@ -1,0 +1,46 @@
+{
+    "orders": [
+      {
+        "id": 1,
+        "name": "Batman",
+        "ingredients": [
+          "beans",
+          "lettuce",
+          "carnitas",
+          "queso fresco",
+          "jalapeno"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Superman",
+        "ingredients": [
+          "steak",
+          "pico de gallo",
+          "lettuce",
+          "carnitas",
+          "queso fresco",
+          "jalapeno"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Spiderman",
+        "ingredients": [
+          "sofritas",
+          "beans",
+          "sour cream",
+          "carnitas",
+          "queso fresco"
+        ]
+      },
+      {
+        "name": "Z",
+        "ingredients": [
+          "sofritas",
+          "pico de gallo"
+        ],
+        "id": 4
+      }
+    ]
+  }
