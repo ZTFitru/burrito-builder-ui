@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { getOrders } from "../../apiCalls";
+import { getOrders, addOrdersApi } from "../../apiCalls";
 import Orders from "../../components/Orders/Orders";
 import OrderForm from "../../components/OrderForm/OrderForm";
 
@@ -18,7 +18,10 @@ function App() {
   }, []);
 
   function addOrder(newOrder) {
-    setApiOrders([...apiOrders, newOrder])
+    // setApiOrders([...apiOrders, newOrder])
+    addOrdersApi(newOrder)
+    .then(data => setApiOrders(order => [...order, data]))
+    .catch(err => console.log(err))
   }
 
   return (

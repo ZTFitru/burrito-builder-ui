@@ -3,7 +3,7 @@ import { useState } from "react";
 function OrderForm({addOrder}) {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
-
+  console.log(name)
   function handleSubmit(e) {
     e.preventDefault();
     const newOrder = {
@@ -21,7 +21,7 @@ function OrderForm({addOrder}) {
 
   function addIngredient(event) {
     event.preventDefault()
-    setIngredients(ingredient => [...ingredient, ingredients])
+    setIngredients(ingredient => [...ingredient, event.target.name])
   
   }
 
