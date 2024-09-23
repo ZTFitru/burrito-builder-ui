@@ -3,6 +3,7 @@ import { useState } from "react";
 function OrderForm({addOrder}) {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const [error, setError] = useState('')
   console.log(name)
 
 
@@ -13,10 +14,13 @@ function OrderForm({addOrder}) {
       ingredients: ingredients
     }
     if(name === '') {
-      alert('Please add a name')
+      // alert('Please add a name')
+      setError('Please add a name')
     } else if (ingredients.length === 0) {
-      alert('Please select at least one ingredient')
+      // alert('Please select at least one ingredient')
+      setError('Please select at least one ingredient')
     } else {
+      setError('')
       addOrder(newOrder)
     }
     
@@ -74,6 +78,7 @@ function OrderForm({addOrder}) {
       {ingredientButtons}
 
       <p>Order: {ingredients.join(", ") || "Nothing selected"}</p>
+      {error && <p>{error}</p>}
 
       <button onClick={(e) => handleSubmit(e)}>Submit Order</button>
     </form>
