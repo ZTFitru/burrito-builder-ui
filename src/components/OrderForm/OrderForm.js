@@ -4,13 +4,22 @@ function OrderForm({addOrder}) {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
   console.log(name)
+
+
   function handleSubmit(e) {
     e.preventDefault();
     const newOrder = {
       name: name,
       ingredients: ingredients
     }
-    addOrder(newOrder)
+    if(name === '') {
+      alert('Please add a name')
+    } else if (ingredients.length === 0) {
+      alert('Please select at least one ingredient')
+    } else {
+      addOrder(newOrder)
+    }
+    
     clearInputs();
   }
 
