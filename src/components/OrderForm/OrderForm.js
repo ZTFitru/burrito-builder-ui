@@ -1,11 +1,16 @@
 import { useState } from "react";
 
-function OrderForm(props) {
+function OrderForm({addOrder}) {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
+    const newOrder = {
+      name: name,
+      ingredients: ingredients
+    }
+    addOrder(newOrder)
     clearInputs();
   }
 
@@ -13,6 +18,12 @@ function OrderForm(props) {
     setName("");
     setIngredients([]);
   };
+
+  function addIngredient(event) {
+    event.preventDefault()
+    setIngredients(ingredient => [...ingredient, ingredients])
+  
+  }
 
   const possibleIngredients = [
     "beans",
@@ -33,13 +44,14 @@ function OrderForm(props) {
       <button
         key={ingredient}
         name={ingredient}
-        // onClick={(e) => }
+        onClick={(e) => addIngredient(e)}
       >
         {ingredient}
       </button>
     );
   });
-
+  console.log('name', name) // name prints fine but 
+  console.log('ingred', ingredients) // why is it printing empty strings for ingredients 
   return (
     <form>
       <input
@@ -47,7 +59,7 @@ function OrderForm(props) {
         placeholder="Name"
         name="name"
         value={name}
-        // onChange={(e) => }
+        onChange={(e) => setName(e.target.value)}
       />
 
       {ingredientButtons}
