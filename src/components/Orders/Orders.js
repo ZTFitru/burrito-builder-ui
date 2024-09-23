@@ -7,8 +7,8 @@ const Orders = (props) => {
       <div className="order" key={order.id}>
         <h3 key={order.id}>{order.name}</h3>
         <ul className="ingredient-list">
-          {order.ingredients.map((ingredient) => {
-            return <li key={ingredient.id}>{ingredient}</li>;
+          {order.ingredients.map((ingredient, index) => {
+            return <li key={index}>{ingredient}</li>;
           })}
         </ul>
       </div>
